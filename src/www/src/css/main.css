@@ -27,13 +27,12 @@ body {
 }
 
 #formModal {
-    margin: auto;
+    margin: 25px;
     margin-top: 50px;
     color: white;
     padding: 15px;
     padding-bottom: 5px;
     background-color: rgb(30,30,35);
-    width: 500px;
 }
 
 ul {

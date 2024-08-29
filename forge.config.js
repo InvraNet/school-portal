@@ -6,6 +6,9 @@ module.exports = {
     name: "School Portal",
     icon: "./src/common/win/icon.ico",
     asar: true,
+    osx: {
+      icon: "./src/common/mac/icon.icns"
+    }
   },
   rebuildConfig: {},
   makers: [
