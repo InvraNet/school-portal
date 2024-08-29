@@ -1,4 +1,5 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
+const nativeImage = require('electron').nativeImage;
 const path = require('path');
 const https = require('https');
 const http = require('http');
@@ -59,6 +60,7 @@ ipcMain.handle('ping-server', async (event, host) => {
 });
 
 app.whenReady().then(() => {
+    app.dock.setIcon(nativeImage.createFromPath(path.join(__dirname, "common/win/icon.png")))
     createWindow();
 
     app.on('activate', () => {
