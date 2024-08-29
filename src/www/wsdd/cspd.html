@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select your Gateway</title>
+    <link rel="stylesheet" href="../src/css/main.css">
+</head>
+<body>
+    <div id="header">
+        <div id="header-left">
+            <button onclick="window.location.href = '../start.html'"><</button>
+        </div>
+    </div>
+    <div id="formModal">
+        <div id="form">
+            <ul id="compassLink" onclick="window.location.href='https://gilroy-nsw.compass.education'">
+                <img draggable="false" src="../src/img/compass-edu.png"/>
+                <h3>Compass Portal</h3>
+                <p>Check your timetable.</p>
+            </ul>
+        </div>
+    </div>
+    <div id="systemInformationModal">
+        <div id="systemInformation">
+            <header>
+                <button onclick="document.getElementById('systemInformationModal').style.display='none'">&times;</button>
+            </header>
+            <h1>System information</h1>
+            Node.js Version: <span id="node-version"></span><br/>
+            Chromium Version: <span id="chrome-version"></span><br/>
+            Electron Version: <span id="electron-version"></span><br/>
+        </div>
+    </div>
+    <footer>
+        <a style="cursor: pointer;" onclick="document.getElementById('systemInformationModal').style.display='flex'">Your info.</a>
+    </footer>
+    <script src="../src/js/startLoad.js"></script>
+    <script src="../src/js/menuRedirect.js"></script>
+</body>
+</html>

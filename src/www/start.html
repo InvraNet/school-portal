@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Portal</title>
+    <link rel="stylesheet" href="src/css/main.css">
+</head>
+<body>
+    <div id="formModal">
+        <div id="form">
+            <ul id="doeLoginLink">
+                <img draggable="false" src="src/img/wifi.svg"/>
+                <h3>DETNSW</h3>
+                <p id="result">Login to the DETNSW Network.</p>
+            </ul>
+            <ul id="doeLink">
+                <img draggable="false" src="src/img/det-nsw.png"/>
+                <h3>DoE Resources</h3>
+                <p>Access Department of Education NSW resources.</p>
+            </ul>
+            <ul id="cspdLink">
+                <img draggable="false" src="src/img/csdp.png"/>
+                <h3>CSPD Resources</h3>
+                <p>Access Catholic School Diocese of Parramatta resources.</p>
+            </ul>
+        </div>
+    </div>
+    <div id="systemInformationModal">
+        <div id="systemInformation">
+            <header>
+                <button onclick="document.getElementById('systemInformationModal').style.display='none'">&times;</button>
+            </header>
+            <h1>System information</h1>
+            Node.js Version: <span id="node-version"></span><br/>
+            Chromium Version: <span id="chrome-version"></span><br/>
+            Electron Version: <span id="electron-version"></span><br/>
+        </div>
+    </div>
+    <footer>
+        <a style="cursor: pointer;" onclick="document.getElementById('systemInformationModal').style.display='flex'">Your info.</a>
+    </footer>
+    <script src="src/js/startLoad.js"></script>
+    <script src="src/js/menuRedirect.js"></script>
+    <script src="src/js/addElement.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department of Education Resources</title>
+    <link rel="stylesheet" href="../src/css/main.css">
+    <link rel="stylesheet" href="../src/css/prompt.css">
+</head>
+<body>
+    <div id="header">
+        <div id="header-left">
+            <button onclick="window.location.href = '../start.html'"><</button>
+        </div>
+    </div>
+    <div id="formModal">
+        <div id="form">
+            <ul id="sentralLink">
+                <img draggable="false" src="../src/img/sentral.png"/>
+                <h3>Sentral</h3>
+                <p>Get your School Timeline and Timetable.</p>
+            </ul>
+        </div>
+    </div>
+    <div id="systemInformationModal">
+        <div id="systemInformation">
+            <header>
+                <button onclick="document.getElementById('systemInformationModal').style.display='none'">&times;</button>
+            </header>
+            <h1>System information</h1>
+            Node.js Version: <span id="node-version"></span><br/>
+            Chromium Version: <span id="chrome-version"></span><br/>
+            Electron Version: <span id="electron-version"></span><br/>
+        </div>
+    </div>
+    <div id="promptModal"></div>
+    <footer>
+        <a style="cursor: pointer;" onclick="document.getElementById('systemInformationModal').style.display='flex'">Your info.</a>
+    </footer>
+    <script src="../src/js/startLoad.js"></script>
+    <script src="../src/js/menuRedirect.js"></script>
+    <script src="../src/js/mssentralSend.js"></script>
+</body>
+</html>

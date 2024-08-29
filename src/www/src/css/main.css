@@ -1,0 +1,67 @@
+@import "reset.css";
+@import "systemInfo.css";
+
+body {
+    background-color: rgb(40,40,50);
+    align-items: center;
+}
+
+#header {
+    position: absolute;
+    top: 0;
+    height: 40px;
+    width: 100%;
+    align-content: center;
+}
+
+#header-left {
+    float: left;
+}
+
+#header-left button{
+    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(30,30,40);;
+    border-radius: 5px;
+}
+
+#formModal {
+    margin: auto;
+    margin-top: 50px;
+    color: white;
+    padding: 15px;
+    padding-bottom: 5px;
+    background-color: rgb(30,30,35);
+    width: 500px;
+}
+
+ul {
+    height: 50px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition-duration: 0.25s;
+}
+
+ul:hover {
+    background-color: rgb(40,40,45);
+}
+
+ul img {
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+footer {
+    padding: 10px;
+    align-content: center;
+    position: absolute;
+    z-index: 1000;
+    bottom: 0;
+    background-color: rgb(30,35,45);
+    width: 100%;
+    color: rgb(225,225,225);
+}
