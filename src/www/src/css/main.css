@@ -64,3 +64,15 @@ footer {
     width: 100%;
     color: rgb(225,225,225);
 }
+
+select {
+    background-color: rgb(73, 73, 73);
+    height: 30px;
+    border-radius: 5;
+    color: black;
+    margin-top: 5px;
+}
+
+.errorMsg {
+    color: rgb(200, 60, 60);
+}

@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
-    const host = 'https://detnsw.net';
+    const host = 'https://detnsw.win';
 
     window.electron.pingServer(host).then((isAlive) => {
         if (!isAlive) {

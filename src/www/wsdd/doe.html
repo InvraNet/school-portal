@@ -33,12 +33,32 @@
             Electron Version: <span id="electron-version"></span><br/>
         </div>
     </div>
-    <div id="promptModal"></div>
+    <div id="promptModal">
+        <div id="prompt">
+            <div id="promptheader">
+                <button onclick="document.getElementById('promptModal').style.display = 'none'">&times;</button>
+            </div>
+            <div id="promptcontent">
+                <h1>What school do you go to?</h1>
+                <select id="schoolDD">
+                    <option value="notSelected" selected="true" disabled="true">Select a School.</option>
+                    <option value="mfhs">Model Farms High School</option>
+                    <option value="rhhs">Rouse hell</option>
+                </select>   
+                <p class="errorMsg" id="schoolDDTrwErr"></p>
+            </div>
+            <div id="promptfooter">
+                <button id="promptSubmit">Submit</button>
+            </div>
+        </div>
+
+    </div>
     <footer>
         <a style="cursor: pointer;" onclick="document.getElementById('systemInformationModal').style.display='flex'">Your info.</a>
     </footer>
     <script src="../src/js/startLoad.js"></script>
     <script src="../src/js/menuRedirect.js"></script>
     <script src="../src/js/mssentralSend.js"></script>
+    <script src="../src/js/submission.js"></script>
 </body>
 </html>

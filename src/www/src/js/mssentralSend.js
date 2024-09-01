@@ -1,11 +1,7 @@
 var sentralURI = document.getAnimations('sentralLink')
 var modal = document.getElementById('promptModal')
+var promptContent = document.getElementById('promptcontent');
 
 document.getElementById('sentralLink').addEventListener('click', () => {
-    modal.innerHTML = `
-    <div id="prompt">
-        <h1>What school do you do to?</h1>
-        <select></select>
-    </div>
-    `
+    modal.style.display = "flex"
 })

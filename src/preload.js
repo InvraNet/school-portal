@@ -18,5 +18,7 @@ contextBridge.exposeInMainWorld('electron', {
     receive: (channel, func) => {
         ipcRenderer.on(channel, (event, ...args) => func(...args));
     },
-    pingServer: (host) => ipcRenderer.invoke('ping-server', host)
+    pingServer: (host) => ipcRenderer.invoke('ping-server', host),
+    getConfig: () => ipcRenderer.invoke('get-config'),
+    writeConfig: (config) => ipcRenderer.invoke('write-config', config)
 });
