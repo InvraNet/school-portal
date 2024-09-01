@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const https = require('https');
 const http = require('http');
+
 const configPath = path.join(__dirname, 'config.json');
 const defaultConfig = {
     schoolName: null,
@@ -50,6 +51,35 @@ function checkHttpServer(host, port, callback) {
     req.end();
 }
 
+function startFirstLaunch() {
+    const mainWindow = new BrowserWindow({
+        maximizable: false,
+        minWidth: 600,
+        maxWidth: 600,
+        width: 600,
+        minHeight: 750,
+        maxHeight: 750,
+        height: 750,
+        titleBarStyle: 'hidden',
+        trafficLightPosition: { x: 8, y: 8 },
+        titleBarOverlay: {
+            color: '#2d2d37',
+            symbolColor: 'white',
+            height: 29,
+          },
+        autoHideMenuBar: true,
+        webPreferences: {
+            preload: path.join(__dirname, 'preload.js'),
+            contextIsolation: true,
+            enableRemoteModule: false,
+            nodeIntegration: false
+        },
+        icon: path.join(__dirname, './common/win/icon.png')
+    });
+    mainWindow.setResizable(false);
+    mainWindow.loadFile(path.join(__dirname, 'www/firstStart.html'));
+}
+
 function createWindow() {
     const mainWindow = new BrowserWindow({
         minWidth: 600,
@@ -90,7 +120,17 @@ ipcMain.handle('write-config', async (event, config) => {
 
 app.whenReady().then(() => {
     initializeConfig();
-    createWindow();
+    try {
+        const config = loadConfig();
+        if (config.schoolName === null) {
+            startFirstLaunch();
+        } else {
+            createWindow();
+        }
+    } catch (error) {
+        console.error("Exiting app... Ran into issue parsing config.", error);
+        app.quit();
+    }
 
     app.on('activate', () => {
         if (BrowserWindow.getAllWindows().length === 0) {

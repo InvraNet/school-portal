@@ -1,0 +1,36 @@
+@import "reset.css";
+
+#header {
+    display: flex;
+    margin: auto;
+    align-items: center;
+    color: white;
+    height: 30px;
+    background-color: rgb(45,45,55);
+    border-bottom: solid 1px rgb(60,60,70);
+    -webkit-app-region: drag;
+}
+
+#content {
+    padding: 10px;
+    color: white;
+    background-color: rgb(45,45,55);
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    font-size: 25px;
+}
+
+h2 {
+    font-size: 23px;
+}
+
+h3 {
+    font-size: 21px;
+}
+
+select {
+    color: black;
+}
