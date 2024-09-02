@@ -152,7 +152,7 @@ app.whenReady().then(() => {
     initializeConfig();
     try {
         const config = loadConfig();
-        if (config.schoolName === null) {
+        if (config.schoolName === null || config.managementSystem === null) {
             startFirstLaunch();
         } else {
             createWindow();
