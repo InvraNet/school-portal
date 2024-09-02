@@ -3,8 +3,9 @@ const path = require('path');
 const fs = require('fs');
 const https = require('https');
 const http = require('http');
+const os = require('os');
 
-const configPath = path.join(__dirname, 'config.json');
+let configPath;
 const defaultConfig = {
     schoolName: null,
     managementSystem: null,
@@ -12,12 +13,35 @@ const defaultConfig = {
 };
 
 function initializeConfig() {
+    switch (process.platform) {
+        case "darwin":
+            configPath = path.join(os.homedir(), "Library", "Application Support", "school-portal", "Data", "config.json");
+            break;
+        case "win32":
+            configPath = path.join(os.homedir(), "AppData", "Local", "school-portal", "data", "config.json");
+            break;
+        case "linux":
+            configPath = path.join(os.homedir(), ".config", "school-portal", "config.json");
+            break;
+        default:
+            console.error("Unsupported platform");
+            return;
+    }
+    
+    const dir = path.dirname(configPath);
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+    }
+
     if (!fs.existsSync(configPath)) {
         fs.writeFileSync(configPath, JSON.stringify(defaultConfig, null, 2), 'utf-8');
     }
 }
 
 function loadConfig() {
+    if (!fs.existsSync(configPath)) {
+        throw new Error('Config file does not exist');
+    }
     return JSON.parse(fs.readFileSync(configPath, 'utf-8'));
 }
 
@@ -26,7 +50,6 @@ function saveConfig(key, value) {
         const config = loadConfig();
         config[key] = value;
         fs.writeFileSync(configPath, JSON.stringify(config, null, 2), 'utf-8');
-        
         console.log(`Config updated: ${key} = ${value}`);
     } catch (error) {
         console.error("Failed to save config", error);
@@ -73,7 +96,7 @@ function startFirstLaunch() {
             color: '#2d2d37',
             symbolColor: 'white',
             height: 29,
-          },
+        },
         autoHideMenuBar: true,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
@@ -148,12 +171,12 @@ app.whenReady().then(() => {
 
 ipcMain.handle('close-app', async () => {
     app.quit();
-})
+});
 
 ipcMain.handle('restart-app', async () => {
-    app.relaunch()
-    app.exit()
-})
+    app.relaunch();
+    app.exit();
+});
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
