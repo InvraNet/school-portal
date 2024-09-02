@@ -45,6 +45,12 @@ function loadConfig() {
     return JSON.parse(fs.readFileSync(configPath, 'utf-8'));
 }
 
+function resetConfig() {
+    fs.writeFileSync(configPath, JSON.stringify(defaultConfig, null, 2), 'utf-8');
+    app.relaunch();
+    app.exit();
+}
+
 function saveConfig(key, value) {
     try {
         const config = loadConfig();
@@ -146,6 +152,10 @@ ipcMain.handle('get-config', async () => {
 ipcMain.handle('write-config', async (event, jsonData, newData) => {
     saveConfig(jsonData, newData);
     return true;
+});
+
+ipcMain.handle('reset-app', async (event, jsonData, newData) => {
+    resetConfig();
 });
 
 app.whenReady().then(() => {

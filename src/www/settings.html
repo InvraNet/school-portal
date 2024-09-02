@@ -7,23 +7,19 @@
     <link rel="stylesheet" href="src/css/main.css">
 </head>
 <body>
+    <div id="header">
+        <div id="header-left">
+            <button onclick="window.location.href = 'start.html'"><</button>
+        </div>
+    </div>
     <div id="formModal">
         <div id="form">
-            <ul id="doeLoginLink">
-                <img draggable="false" src="src/img/wifi.svg"/>
-                <h3>DETNSW</h3>
-                <p id="result">Login to the DETNSW Network.</p>
-            </ul>
-            <ul id="doeLink">
-                <img draggable="false" src="src/img/det-nsw.png"/>
-                <h3>DoE Resources</h3>
-                <p>Access Department of Education NSW resources.</p>
-            </ul>
-            <ul id="cspdLink">
-                <img draggable="false" src="src/img/csdp.png"/>
-                <h3>CSPD Resources</h3>
-                <p>Access Catholic School Diocese of Parramatta resources.</p>
-            </ul>
+            <h1>Settings</h1>
+            <h3>Your Information</h3>
+            <div id="clientInfo">
+
+            </div>
+            <button onclick="window.electron.resetData();">Go to configurator.</button>
         </div>
     </div>
     <div id="systemInformationModal">
@@ -37,14 +33,10 @@
             Electron Version: <span id="electron-version"></span><br/>
         </div>
     </div>
-    <footer>
-        <a style="cursor: pointer;" onclick="document.getElementById('systemInformationModal').style.display='flex'">Your info.</a>
-        <button onclick="window.location.href ='./settings.html'">Settings</button>
-        <a href="https://link.space/@ItzNiko" target="_blank">Art (ItzNiko)</a>
-    </footer>
     <script src="src/js/startLoad.js"></script>
     <script src="src/js/menuRedirect.js"></script>
     <script src="src/js/addElement.js"></script>
     <script src="src/js/config.js"></script>
+    <script src="src/js/clinetelle.js"></script>
 </body>
 </html>

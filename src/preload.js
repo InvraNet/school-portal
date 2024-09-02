@@ -22,5 +22,6 @@ contextBridge.exposeInMainWorld('electron', {
     getConfig: () => ipcRenderer.invoke('get-config'),
     writeConfig: (key, value) => ipcRenderer.invoke('write-config', key, value),
     shutdownApp: () => ipcRenderer.invoke('close-app'),
-    resetApp: () => ipcRenderer.invoke('restart-app')
+    resetApp: () => ipcRenderer.invoke('restart-app'),
+    resetData: () => ipcRenderer.invoke('reset-app')
 });
