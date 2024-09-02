@@ -7,8 +7,7 @@ const http = require('http');
 const configPath = path.join(__dirname, 'config.json');
 const defaultConfig = {
     schoolName: null,
-    state: null,
-    type: null,
+    managementSystem: null,
     autoHideDETNSW: false
 };
 
@@ -146,6 +145,15 @@ app.whenReady().then(() => {
         }
     });
 });
+
+ipcMain.handle('close-app', async () => {
+    app.quit();
+})
+
+ipcMain.handle('restart-app', async () => {
+    app.relaunch()
+    app.exit()
+})
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {

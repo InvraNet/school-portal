@@ -37,5 +37,6 @@ saveButton.addEventListener('click', () => {
                 window.electron.writeConfig(key, value);
             }
         }
+        window.electron.resetApp();
     }
 });

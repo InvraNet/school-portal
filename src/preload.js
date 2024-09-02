@@ -20,5 +20,7 @@ contextBridge.exposeInMainWorld('electron', {
     },
     pingServer: (host) => ipcRenderer.invoke('ping-server', host),
     getConfig: () => ipcRenderer.invoke('get-config'),
-    writeConfig: (key, value) => ipcRenderer.invoke('write-config', key, value)
+    writeConfig: (key, value) => ipcRenderer.invoke('write-config', key, value),
+    shutdownApp: () => ipcRenderer.invoke('close-app'),
+    resetApp: () => ipcRenderer.invoke('restart-app')
 });
