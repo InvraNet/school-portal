@@ -82,3 +82,8 @@ select {
 #footer-right button:hover {
     background-color: rgb(48, 66, 163);
 }
+
+#labTick *, #labTick {
+    cursor: pointer;
+    user-select: none;
+}

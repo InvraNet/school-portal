@@ -21,15 +21,19 @@
 
         <p>What is your management?</p>
         <select id="schoolManagement">
-            <option vlaue="MFHS">Department of Education (Public Schools)</option>
-            <option value="Gilroy">Catholic Schools Diocese of Parrmatta (Aka. CEDP)</option>
+            <option value="notSelected" disabled="true" selected="true">Please select a department.</option>
+            <option value="DoE">Department of Education (Public Schools)</option>
+            <option value="CSDP">Catholic Schools Diocese of Parrmatta (Aka. CEDP)</option>
         </select>
-
+        <p id="managementError" class="errorMsg"></p>
+        
         <p>What school do you go to?</p>
         <select id="schoolSetting">
-            <option vlaue="MFHS">Model Farms High School</option>
-            <option value="Gilroy">Gilroy Catholic College</option>
+            <option value="notSelected" selected="true" disabled="true">Please select your department first.</option>
         </select>
+        <p id="schoolError" class="errorMsg"></p>
+
+        <div id="doespecsettings"></div>
     </div>
     <div id="footer">
         <div id="footer-left">
@@ -39,5 +43,7 @@
             <button id="saveButton">Save</button>
         </div>
     </div>
+    <script src="src/js/firstStartScripts/handleSave.js"></script>
+    <script src="src/js/firstStartScripts/populateSchools.js"></script>
 </body>
 </html>
