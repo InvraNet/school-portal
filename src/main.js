@@ -22,8 +22,16 @@ function loadConfig() {
     return JSON.parse(fs.readFileSync(configPath, 'utf-8'));
 }
 
-function saveConfig(config) {
-    fs.writeFileSync(configPath, JSON.stringify(config, null, 2), 'utf-8');
+function saveConfig(key, value) {
+    try {
+        const config = loadConfig();
+        config[key] = value;
+        fs.writeFileSync(configPath, JSON.stringify(config, null, 2), 'utf-8');
+        
+        console.log(`Config updated: ${key} = ${value}`);
+    } catch (error) {
+        console.error("Failed to save config", error);
+    }
 }
 
 function checkHttpServer(host, port, callback) {
@@ -113,8 +121,8 @@ ipcMain.handle('get-config', async () => {
     return loadConfig();
 });
 
-ipcMain.handle('write-config', async (event, config) => {
-    saveConfig(config);
+ipcMain.handle('write-config', async (event, jsonData, newData) => {
+    saveConfig(jsonData, newData);
     return true;
 });
 
