@@ -1,5 +1,9 @@
 @import "reset.css";
 
+a, p, h1, h2, h3, h4, h5, select, input, button {
+    user-select: none;
+}
+
 #header {
     position: sticky;
     top: 0;
