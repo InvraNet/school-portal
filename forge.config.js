@@ -7,7 +7,7 @@ module.exports = {
     icon: "./src/common/win/icon.ico",
     asar: true,
     osx: {
-      icon: "./src/common/mac/icon.icns"
+      icon: "./src/common/win/icon.icns"
     }
   },
   rebuildConfig: {},
