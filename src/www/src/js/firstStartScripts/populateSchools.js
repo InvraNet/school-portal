@@ -13,7 +13,7 @@ schoolManagementSystemDropdown.addEventListener('change', () => {
             document.getElementById('doespecsettings').innerHTML = `
             <h3>Other settings</h3>
             <div id="labTick" dragabble="false">
-                <input class="check" type="checkbox" id="doeLoginEnabled" value="doeShowLogin">
+                
                 <label for="doeLoginEnabled">Enable visibility for login for https://detnsw.net.<label>
             </div>
             `;

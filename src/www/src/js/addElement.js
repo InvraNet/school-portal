@@ -1,14 +1,14 @@
 window.addEventListener('DOMContentLoaded', () => {
-    const host = 'https://detnsw.net';
-
-    window.electron.pingServer(host).then((isAlive) => {
-        if (!isAlive) {
-            const element = document.getElementById('doeLoginLink');
-            if (element) {
+    const element = document.getElementById('doeLoginLink');
+    window.electron.getConfig().then(config => {
+        try {
+            if (config.autoHideDETNSW === true) {
                 element.remove();
             }
+        } catch (error) {
+            console.error(error);
         }
-    }).catch((error) => {
-        console.error('Error pinging server:', error);
+    }).catch(error => {
+        console.error(error);
     });
 });
