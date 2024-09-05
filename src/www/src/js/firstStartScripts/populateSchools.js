@@ -10,13 +10,7 @@ schoolManagementSystemDropdown.addEventListener('change', () => {
             <option value="MFHS">Model Farms High School</option>
             <option value="RHHS">Rouse Hill High School</option>
             `;
-            document.getElementById('doespecsettings').innerHTML = `
-            <h3>Other settings</h3>
-            <div id="labTick" dragabble="false">
-                
-                <label for="doeLoginEnabled">Enable visibility for login for https://detnsw.net.<label>
-            </div>
-            `;
+            document.getElementById('doespecsettings').style.display = "block";
             break;
 
         case "CSDP":
@@ -25,7 +19,7 @@ schoolManagementSystemDropdown.addEventListener('change', () => {
             <option value="GCC">Gilroy Catholic College</option>
             <option value="PMB">Marist Brothers Parramatta</option>
             `;
-            document.getElementById('doespecsettings').innerHTML = ``;
+            document.getElementById('doespecsettings').style.display = "none";
             break;
         default:
             break;
