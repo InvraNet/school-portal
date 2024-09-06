@@ -1,0 +1,26 @@
+{
+    "appId": "com.invranet.school-portal",
+    "productName": "School Portal",
+    "files": [
+        "src/**/*",
+        "node_modules/**/*"
+    ],
+    "directories": {
+        "output": "dist"
+    },
+    "win": {
+        "target": "nsis",
+        "icon": "src/common/win/icon.ico"
+    },
+    "mac": {
+        "target": "dmg",
+        "icon": "src/common/win/icon.icns"
+    },
+    "linux": {
+        "target": [
+            "pacman"
+          ],
+        "icon": "src/common/win/icon.png",
+        "category": "Education"
+    }
+  }  

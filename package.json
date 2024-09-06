@@ -2,11 +2,14 @@
   "name": "school-portal",
   "productName": "school-portal",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "An applicaiton to access school resources in New South Wales",
   "main": "src/main.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
+    "dist": "electron-builder --config electron-builder.json",
+    "dist:win": "electron-builder --config electron-builder.json --win",
+    "dist:linux": "electron-builder --config electron-builder.json --linux",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\""
@@ -20,7 +23,9 @@
     "@electron-forge/plugin-auto-unpack-natives": "^7.4.0",
     "@electron-forge/plugin-fuses": "^7.4.0",
     "@electron/fuses": "^1.8.0",
-    "electron": "32.0.1"
+    "electron": "32.0.1",
+    "electron-builder": "^25.0.5",
+    "electron-squirrel-startup": "^1.0.1"
   },
   "keywords": [],
   "author": {
@@ -29,6 +34,5 @@
   },
   "license": "MIT",
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.1"
   }
 }
